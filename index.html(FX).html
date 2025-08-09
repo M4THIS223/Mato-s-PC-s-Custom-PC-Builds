@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Mato's PC's | Custom PC Builds</title>
+  <link rel="stylesheet" href="style.css" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+</head>
+<body>
+  <!-- Toggle for sidebar (pure CSS) -->
+  <input type="checkbox" id="menu-toggle" hidden>
+
+  <!-- Header / Toggle Button -->
+  <header class="topbar">
+    <label for="menu-toggle" class="menu-btn" aria-label="Open menu">☰</label>
+    <a href="#hero" class="brand">M.P.C’s</a>
+    <nav class="top-links">
+      <a href="#builds">Builds</a>
+      <a href="#pricing">Pricing</a>
+      <a href="#gallery">Gallery</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </header>
+
+  <!-- Slide-in Sidebar -->
+  <nav class="sidebar">
+    <h2>Menu</h2>
+    <ul>
+      <li><a href="#hero">Dashboard</a></li>
+      <li><a href="#builds">Builds</a></li>
+      <li><a href="#pricing">Pricing</a></li>
+      <li><a href="#gallery">Gallery</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </nav>
+  <!-- Click-outside backdrop -->
+  <label for="menu-toggle" class="backdrop" aria-hidden="true"></label>
+
+  <!-- Blurred Background -->
+  <div class="blur-bg"></div>
+
+  <!-- Hero -->
+  <main id="hero" class="content">
+    <h2>Welcome to Mato's PC's!</h2>
+    <p>M.P.C's for short — and no, I’m not an NPC 😄. I’m a college student building custom PCs for gamers, students, and creators — tuned for performance, value, and vibes.</p>
+    <div class="cta-row">
+      <a href="#pricing" class="btn">See Pricing</a>
+      <a href="#contact" class="btn btn-outline">Get a Quote</a>
+    </div>
+  </main>
+
+  <!-- How it works -->
+  <section id="builds" class="section how">
+    <h2>How It Works</h2>
+    <div class="steps">
+      <div class="step">
+        <div class="step-num">1</div>
+        <h3>Tell me your goals</h3>
+        <p>Gaming, school, streaming, or creator work. We’ll match parts to your budget.</p>
+      </div>
+      <div class="step">
+        <div class="step-num">2</div>
+        <h3>Parts picked smart</h3>
+        <p>Cheapest yet effective components — no hype tax, just performance.</p>
+      </div>
+      <div class="step">
+        <div class="step-num">3</div>
+        <h3>Build & test</h3>
+        <p>Clean cable management, BIOS updates, thermal checks, and stress testing.</p>
+      </div>
+      <div class="step">
+        <div class="step-num">4</div>
+        <h3>Ship or pickup</h3>
+        <p>Local pickup or shipping arranged. You get plug-and-play with setup tips.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Pricing -->
+  <section id="pricing" class="section pricing">
+    <h2>Simple Pricing</h2>
+    <p class="sub">You pay parts at cost + labor. Labor is a <strong>$100 flat</strong> or <strong>10–15%</strong> of parts — whichever is greater.</p>
+
+    <div class="cards">
+      <article class="card starter">
+        <h3>Starter</h3>
+        <p class="desc">1080p gaming • schoolwork</p>
+        <ul>
+          <li>Balanced CPU/GPU for value</li>
+          <li>16 GB RAM • 1 TB NVMe</li>
+          <li>Cable-managed, quiet build</li>
+        </ul>
+        <div class="price">Parts + <span>$100</span> labor*</div>
+        <a href="#contact" class="btn small">Ask about Starter</a>
+      </article>
+
+      <article class="card creator featured">
+        <div class="badge">Most Popular</div>
+        <h3>Creator</h3>
+        <p class="desc">4K timelines • 3D • AI tinkering</p>
+        <ul>
+          <li>Multi-core CPU & strong GPU</li>
+          <li>64 GB RAM • fast storage</li>
+          <li>Color-safe airflow & acoustics</li>
+        </ul>
+        <div class="price">Parts + <span>15%</span> labor*</div>
+        <a href="#contact" class="btn small">Ask about Creator</a>
+      </article>
+
+      <article class="card sweater">
+        <h3>Sweater</h3>
+        <p class="desc">you dirty lil sweat... here a high-end set up</p>
+        <ul>
+          <li>High-refresh FPS focus</li>
+          <li>Upgraded cooling & PSU headroom</li>
+          <li>Overclock/undervolt tuned</li>
+        </ul>
+        <div class="price">Parts + <span>10–15%</span> labor*</div>
+        <a href="#contact" class="btn small">Ask about Sweater</a>
+      </article>
+
+      <article class="card tank">
+        <h3>TANK</h3>
+        <p class="desc">😨</p>
+        <ul>
+          <li>Oversized airflow case</li>
+          <li>High-end cooler • low noise</li>
+          <li>Reliability-first parts</li>
+        </ul>
+        <div class="price">Parts + <span>15%</span> labor*</div>
+        <a href="#contact" class="btn small">Ask about TANK</a>
+      </article>
+    </div>
+
+    <p class="fine">*Labor minimum $100. Shipping can be paid by customer or included — we’ll confirm before purchase.</p>
+  </section>
+
+  <!-- Gallery -->
+  <section id="gallery" class="section image-section">
+    <div class="image-text">
+      <h2>Current Build</h2>
+      <p>Optimized for gaming, streaming, and creative work. Quiet fans, tidy cables. It’s kind of a “starter move” — and it looks great on a desk.</p>
+      <ul class="specs">
+        <li>Ryzen / AMD 5000 Series</li>
+        <li>ASUS Prime B450M-A II</li>
+        <li>Thermaltake Smart Series 500W</li>
+        <li>More on the way!</li>
+      </ul>
+      <a href="#contact" class="btn">I want one like this</a>
+    </div>
+
+    <div class="image-stack">
+      <img src="images/background.jpg" alt="Custom Gaming PC" class="base-img">
+      <img src="images/IMG_4864.png" alt="Overlay" class="overlay-img">
+    </div>
+  </section>
+
+  <!-- Contact -->
+  <section id="contact" class="section contact">
+    <h2>Get a Quote</h2>
+    <p>Tell me your budget and what you’ll use the PC for. I’ll reply with a parts list and labor total.</p>
+    
+
+    <!-- JS-powered email (more reliable than form mailto) -->
+    <form id="quoteForm" class="quote" onsubmit="return false;">
+      <div class="grid">
+        <label>
+          Name
+          <input type="text" name="name" required />
+        </label>
+        <label>
+          Email
+          <input type="email" name="email" required />
+        </label>
+        <label>
+          Budget (USD)
+          <input type="number" name="budget" min="400" step="50" required />
+        </label>
+        <label>
+          Use Case
+          <select name="use">
+            <option>Gaming</option>
+            <option>School</option>
+            <option>Streaming</option>
+            <option>Content Creation</option>
+            <option>Mixed</option>
+          </select>
+        </label>
+      </div>
+      <label>
+        Notes (games/apps, size, RGB, etc.)
+        <textarea name="notes" rows="4" placeholder="1080p/1440p? Favorite games? Case size?"></textarea>
+      </label>
+      <button type="button" class="btn" onclick="sendMail()">Send</button>
+      <a class="btn btn-outline" href="mailto:mathismichel.prof@gmail.com?subject=MPCs%20Build%20Quote">Email instead</a>
+      <noscript><p style="margin-top:10px">JS is off — use the “Email instead” button.</p></noscript>
+    </form>
+  </section>
+
+  <!-- Payments -->
+  <section id="payments" class="section payments">
+    <h2>How We'll Handle Payments</h2>
+    <p class="sub">Fair, transparent, and secure for both you and me.</p>
+
+    <div class="policy-grid">
+      <div class="policy-step">
+        <h3>1. Free Quote</h3>
+        <p>We start with a free, detailed quote listing all parts, prices, and labor so you know exactly what you’re paying for.</p>
+      </div>
+
+      <div class="policy-step">
+        <h3>2. Deposit</h3>
+        <p>To start your build, you pay <strong>40% of the parts cost</strong> up front. This deposit is used only to buy your parts — you’ll get receipts as proof.</p>
+      </div>
+
+      <div class="policy-step">
+        <h3>3. Updates</h3>
+        <p>You’ll get photos, videos, and progress updates during the build process so you can see exactly what’s happening.</p>
+      </div>
+
+      <div class="policy-step">
+        <h3>4. Final Payment</h3>
+        <p>Once your PC is fully built and tested, you pay the remaining parts cost + labor fee before delivery. I’ll send benchmark results and final photos before requesting payment.</p>
+      </div>
+    </div>
+
+    <p class="fine">Payments are CashApp, or Venmo with invoice. Local customers can pay cash on pickup.</p>
+  </section>
+
+  <footer class="footer">
+  <p>© <span id="year"></span> M.P.C’s — Custom PC Builds. 1–2 builds per month while I’m in college.</p>
+  <div class="social-row" style="margin-top:10px">
+    <a class="social-btn ig" href="https://instagram.com/g.l.d.n_mathis" target="_blank" rel="noopener">Instagram</a>
+    <a class="social-btn sc" href="https://www.snapchat.com/add/YOUR_SNAP_USERNAME" target="_blank" rel="noopener">Snapchat</a>
+    <a class="social-btn tt" href="https://www.tiktok.com/@golden.mathis" target="_blank" rel="noopener">TikTok</a>
+  </div>
+</footer>
+
+  <script>
+    // set year
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    // open user's mail client prefilled with form data
+    function sendMail() {
+      const f = document.getElementById('quoteForm');
+      const name   = (f.elements['name'].value || '').trim();
+      const email  = (f.elements['email'].value || '').trim();
+      const budget = (f.elements['budget'].value || '').trim();
+      const use    = f.elements['use'].value || '';
+      const notes  = (f.elements['notes'].value || '').trim();
+
+      const to = 'mathismichel.prof@gmail.com';
+      const subject = `MPCs Build Quote — ${name || 'New inquiry'}`;
+      const body = [
+        `Name: ${name}`,
+        `Email: ${email}`,
+        `Budget: $${budget}`,
+        `Use Case: ${use}`,
+        '',
+        'Notes:',
+        notes
+      ].join('\n');
+
+      window.location.href =
+        `mailto:${encodeURIComponent(to)}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+    }
+  </script>
+</body>
+</html>
