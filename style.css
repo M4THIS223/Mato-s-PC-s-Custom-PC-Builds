@@ -264,3 +264,28 @@ body{
 
 /* ===== Utility ===== */
 a[href^="#"]{ cursor:pointer; }
+
+.form-status{
+  margin-top:10px;
+  color: var(--accent);
+  font-size:14px;
+}
+
+/* Reusable social button styles (used in footer and under the form) */
+.social-row {
+  display:flex; gap:10px; justify-content:center; flex-wrap:wrap;
+}
+.social-row.under-form { margin-top:16px; }
+
+.social-btn{
+  display:inline-block;
+  padding:10px 14px;
+  border-radius:10px;
+  text-decoration:none;
+  background: rgba(255,255,255,.08);
+  color: var(--text);
+  border:1px solid rgba(255,255,255,.2);
+  box-shadow: var(--shadow);
+  font-size: 14px;
+}
+.social-btn:hover{ filter: brightness(1.1); }
