@@ -159,10 +159,13 @@
   <section id="contact" class="section contact">
     <h2>Get a Quote</h2>
     <p>Tell me your budget and what you’ll use the PC for. I’ll reply with a parts list and labor total.</p>
-    
 
-    <!-- JS-powered email (more reliable than form mailto) -->
-    <form id="quoteForm" class="quote" onsubmit="return false;">
+    <!-- Formspree-powered email -->
+    <form id="quoteForm" class="quote" action="https://formspree.io/f/xwpqzbvv" method="POST">
+      <!-- replace with your own Formspree URL ↑ -->
+      <input type="hidden" name="_subject" value="MPCs Build Quote" />
+      <input type="text" name="_gotcha" autocomplete="off" tabindex="-1" style="position:absolute;left:-9999px" />
+
       <div class="grid">
         <label>
           Name
@@ -187,13 +190,22 @@
           </select>
         </label>
       </div>
+
       <label>
         Notes (games/apps, size, RGB, etc.)
         <textarea name="notes" rows="4" placeholder="1080p/1440p? Favorite games? Case size?"></textarea>
       </label>
-      <button type="button" class="btn" onclick="sendMail()">Send</button>
+
+      <button type="submit" class="btn">Send</button>
       <a class="btn btn-outline" href="mailto:mathismichel.prof@gmail.com?subject=MPCs%20Build%20Quote">Email instead</a>
-      <noscript><p style="margin-top:10px">JS is off — use the “Email instead” button.</p></noscript>
+
+      <p id="formStatus" class="form-status" aria-live="polite"></p>
+
+      <!-- Social under the form -->
+      <div class="social-row under-form">
+        <a class="social-btn ig" href="https://instagram.com/g.l.d.n_mathis" target="_blank" rel="noopener">Instagram</a>
+        <a class="social-btn tt" href="https://www.tiktok.com/@golden.mathis" target="_blank" rel="noopener">TikTok</a>
+      </div>
     </form>
   </section>
 
@@ -228,42 +240,46 @@
   </section>
 
   <footer class="footer">
-  <p>© <span id="year"></span> M.P.C’s — Custom PC Builds. 1–2 builds per month while I’m in college.</p>
-  <div class="social-row" style="margin-top:10px">
-    <a class="social-btn ig" href="https://instagram.com/g.l.d.n_mathis" target="_blank" rel="noopener">Instagram</a>
-    <a class="social-btn sc" href="https://www.snapchat.com/add/YOUR_SNAP_USERNAME" target="_blank" rel="noopener">Snapchat</a>
-    <a class="social-btn tt" href="https://www.tiktok.com/@golden.mathis" target="_blank" rel="noopener">TikTok</a>
-  </div>
-</footer>
+    <p>© <span id="year"></span> M.P.C’s — Custom PC Builds. 1–2 builds per month while I’m in college.</p>
+    <div class="social-row" style="margin-top:10px">
+      <a class="social-btn ig" href="https://instagram.com/g.l.d.n_mathis" target="_blank" rel="noopener">Instagram</a>
+      <a class="social-btn sc" href="https://www.snapchat.com/add/YOUR_SNAP_USERNAME" target="_blank" rel="noopener">Snapchat</a>
+      <a class="social-btn tt" href="https://www.tiktok.com/@golden.mathis" target="_blank" rel="noopener">TikTok</a>
+    </div>
+  </footer>
 
   <script>
     // set year
     document.getElementById('year').textContent = new Date().getFullYear();
 
-    // open user's mail client prefilled with form data
-    function sendMail() {
-      const f = document.getElementById('quoteForm');
-      const name   = (f.elements['name'].value || '').trim();
-      const email  = (f.elements['email'].value || '').trim();
-      const budget = (f.elements['budget'].value || '').trim();
-      const use    = f.elements['use'].value || '';
-      const notes  = (f.elements['notes'].value || '').trim();
+    // AJAX submit to Formspree so we can show a success message without leaving the page
+    const form = document.getElementById('quoteForm');
+    const statusEl = document.getElementById('formStatus');
 
-      const to = 'mathismichel.prof@gmail.com';
-      const subject = `MPCs Build Quote — ${name || 'New inquiry'}`;
-      const body = [
-        `Name: ${name}`,
-        `Email: ${email}`,
-        `Budget: $${budget}`,
-        `Use Case: ${use}`,
-        '',
-        'Notes:',
-        notes
-      ].join('\n');
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      statusEl.textContent = 'Sending...';
 
-      window.location.href =
-        `mailto:${encodeURIComponent(to)}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
-    }
+      try {
+        const res = await fetch(form.action, {
+          method: 'POST',
+          headers: { 'Accept': 'application/json' },
+          body: new FormData(form)
+        });
+
+        if (res.ok) {
+          statusEl.textContent = 'Thanks! Your request was sent. I will reply to your email soon.';
+          form.reset();
+        } else {
+          const data = await res.json().catch(() => ({}));
+          statusEl.textContent = (data && (data.error || (data.errors && data.errors[0]?.message)))
+            || 'Something went wrong. Please try again or use the Email button.';
+        }
+      } catch (err) {
+        statusEl.textContent = 'Network error. Please try again or use the Email button.';
+      }
+    });
   </script>
 </body>
 </html>
+
